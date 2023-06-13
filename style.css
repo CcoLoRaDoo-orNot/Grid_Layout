@@ -16,15 +16,24 @@ html, body {
 }
 
 .app {
-    display: grid;
-    grid-gap: 5px;
-    height: 100%;
-
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    display: flex;
 }
 
-div div {
+.container {
+    display: grid;
+    
+    margin: auto;
+    margin-top: 4%;
+    width: 100%;
+
+    max-width: 95%;
+
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 50px);
+    gap: 15px;
+}
+
+.container > div {
     display: grid;
     border: solid 3px #ff6f00;
 }
@@ -32,34 +41,115 @@ div div {
 div p {
     display: flex;
     margin: auto;
+
+    height: 50px;
 }
 
 .header {
     grid-row: 1;
-    grid-column: 1 / 7;
-}
-
-.sidebar {
-    grid-row: 2 / 7;
     grid-column: 1;
 }
 
 .navigation {
     grid-row: 2;
-    grid-column: 2 / 6;
-}
-
-.ads {
-    grid-row: 2 / 7;
-    grid-column: 6;
+    grid-column: 1;
 }
 
 .main {
-    grid-row: 3 / 7;
-    grid-column: 2 / 6;
+    grid-row: 3 / 9;
+    grid-column: 1;
+}
+
+.sidebar {
+    grid-row: 10;
+    grid-column: 1;
+}
+
+.ads {
+    grid-row: 11;
+    grid-column: 1;
 }
 
 .footer {
-    grid-row: 7;
-    grid-column: 1 / 7;
+    grid-row: 12;
+    grid-column: 1;
+}
+
+
+
+@media screen and (min-width: 650px) {
+    .container {
+        grid-template-columns: repeat(6, 50px);
+        grid-template-rows: repeat(6, 50px);
+        gap: 20px;
+    }
+
+    .header {
+        grid-row: 1;
+        grid-column: 1 / 13;
+    }
+
+    .navigation {
+        grid-row: 2;
+        grid-column: 1 / 13;
+    }
+
+    .sidebar {
+        grid-row: 3 / 11;
+        grid-column: 1 / 4;
+    }
+
+    .main {
+        grid-row: 3 / 11;
+        grid-column: 4 / 13;
+    }
+    
+    .ads {
+        grid-column: 1 / 13;
+        grid-row: 11;
+    }
+
+    .footer {
+        grid-column: 1 / 13;
+        grid-row: 12;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        grid-template-columns: repeat(6, 50px);
+        grid-template-rows: repeat(6, 50px);
+        gap: 20px;
+    }
+
+    .header {
+        grid-row: 1;
+        grid-column: 1 / 20;
+    }
+
+    .sidebar {
+        grid-row: 2 / 30;
+        grid-column: 1 / 5;
+    }
+
+    .navigation {
+        grid-column: 5 / 17;
+        grid-row: 2;
+    }
+
+    .ads {
+        grid-column: 17 / 20;
+        grid-row: 2 / 30;
+    }
+
+    .main {
+        grid-column: 5 / 17;
+        grid-row: 3 / 30;
+    }
+
+    .footer {
+        grid-row: 30;
+        grid-column: 1 / 20;
+    }
+
 }
